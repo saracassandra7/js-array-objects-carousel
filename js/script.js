@@ -40,17 +40,23 @@ console.log(immagini);
 const slider = document.querySelector('.slider');
 const itemsWrapper = document.querySelector('.items-wrapper');
 const description =document.querySelector('.description');
+const containerSmall = document.querySelector('.container-small')
 let counterImages = 0;
 
 immagini.forEach (immagini => {
   itemsWrapper.innerHTML += `<img class = "item" src="${immagini.foto}" alt="${immagini.titolo}">`
   description.innerHTML += `<h1>${immagini.titolo}</h1>
   <p>${immagini.descrizione}</p>`
-  
+  description.classList.add('hide');
+  containerSmall.innerHTML += `<div class="item-small">
+  <img class="mini-item" src="${immagini.foto}" alt="${immagini.titolo}">`
+
 });
 
 const items = document.getElementsByClassName('item')
+const miniItem = document.getElementsByClassName('item-small')
 items[counterImages].classList.add('active');
+miniItem[counterImages].classList.add('active-small');
 
 // salvo le chevrons in delle costanti
 const prev = document.querySelector('.left');
@@ -66,6 +72,8 @@ prev.addEventListener('click', prevImg);
 function nextImg(){
   items[counterImages].classList.remove('active');
   items[++counterImages].classList.add('active');
+  //miniItem[counterImages].classList.remove('active-small');
+  //miniItem[++counterImages].classList.add('active-small')
 
   prev.classList.remove('hide')
 
@@ -77,6 +85,9 @@ function nextImg(){
 function prevImg(){
   items[counterImages].classList.remove('active');
   items[--counterImages].classList.add('active');
+  //miniItem[counterImages].classList.remove('active-small');
+  //miniItem[--counterImages].classList.add('active-small');
+  
   
   next.classList.remove('hide');
   if(counterImages === 0){
