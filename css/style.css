@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .main-wrapper{
   height: 100vh;
   display: flex;
@@ -89,4 +93,12 @@
 .mini-item.active{
   opacity: 1;
   border: 2px solid black;
+}
+
+.description{
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: white;
+  text-align: end;
 }
