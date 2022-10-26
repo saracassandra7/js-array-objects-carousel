@@ -39,10 +39,14 @@ console.log(immagini);
 
 const slider = document.querySelector('.slider');
 const itemsWrapper = document.querySelector('.items-wrapper');
+const description =document.querySelector('.description');
 let counterImages = 0;
 
 immagini.forEach (immagini => {
   itemsWrapper.innerHTML += `<img class = "item" src="${immagini.foto}" alt="${immagini.titolo}">`
+  description.innerHTML += `<h1>${immagini.titolo}</h1>
+  <p>${immagini.descrizione}</p>`
+  
 });
 
 const items = document.getElementsByClassName('item')
