@@ -34,3 +34,49 @@ const immagini =[
 ]
 
 console.log(immagini);
+
+//stampo dinamicamente le immagini
+
+const slider = document.querySelector('.slider');
+const itemsWrapper = document.querySelector('.items-wrapper');
+let counterImages = 0;
+
+immagini.forEach (immagini => {
+  itemsWrapper.innerHTML += `<img class = "item" src="${immagini.foto}" alt="${immagini.titolo}">`
+});
+
+const items = document.getElementsByClassName('item')
+items[counterImages].classList.add('active');
+
+// salvo le chevrons in delle costanti
+const prev = document.querySelector('.left');
+const next = document.querySelector('.right');
+//prev di default è hide
+prev.classList.add('hide');
+
+//all'evento click di next e prev cambia l'immagine
+next.addEventListener('click', nextImg);
+
+prev.addEventListener('click', prevImg);
+
+function nextImg(){
+  items[counterImages].classList.remove('active');
+  items[++counterImages].classList.add('active');
+
+  prev.classList.remove('hide')
+
+  if(counterImages === immagini.length - 1){
+    next.classList.add('hide');
+  }
+};  
+
+function prevImg(){
+  items[counterImages].classList.remove('active');
+  items[--counterImages].classList.add('active');
+  
+  next.classList.remove('hide');
+  if(counterImages === 0){
+    prev.classList.add('hide')
+  }
+
+}
